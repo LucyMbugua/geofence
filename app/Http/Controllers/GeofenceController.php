@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\GeofenceRequest;
+use App\Models\Geofence;
 use App\Models\GeoLocation;
 use App\Models\County;
 use App\Models\SubCounty;
@@ -45,17 +46,12 @@ class GeofenceController extends Controller {
 	 */
 	public function store(GeofenceRequest $request)
 	{
-		$town = new Geofence;
-		$town->code = $request->code;
-        $town->name = $request->name;
-        $town->email = $request->email;
-        $town->address = $request->address;
-        $town->in_charge = $request->in_charge;
-        $town->operational_status = $request->operational_status;
-        $town->latitude = $request->latitude;
-        $town->longitude = $request->longitude;
-        $town->user_id = Auth::user()->id;
-        $town->save();
+		$fence = new Geofence;
+		$fence->geo_location_id = $request->location;
+        $fence->latitude = $request->latitude;
+        $fence->longitude = $request->longitude;
+        $fence->user_id = Auth::user()->id;
+        $fence->save();
 
         return redirect('geofence')->with('message', 'Geofence created successfully.');
         
@@ -73,7 +69,7 @@ class GeofenceController extends Controller {
 	{
 		//show a geofence
 		$geofence = Geofence::find($id);
-		//show the view and pass the $town to it
+		//show the view and pass the $fence to it
 		return view('geo.geofence.show', compact('geofence'));
 	}
 
@@ -106,16 +102,13 @@ class GeofenceController extends Controller {
 	 */
 	public function update(GeofenceRequest $request, $id)
 	{
-		$town = Geofence::findOrFail($id);
-       $town->code = $request->code;
-        $town->name = $request->name;
-        $town->address = $request->address;
-        $town->in_charge = $request->in_charge;
-        $town->operational_status = $request->operational_status;
-        $town->latitude = $request->latitude;
-        $town->longitude = $request->longitude;
-        $town->user_id = Auth::user()->id;
-        $town->save();
+		$fence = Geofence::findOrFail($id);
+       	$fence->geo_location_id = $request->location;
+        $fence->latitude = $request->latitude;
+        $fence->longitude = $request->longitude;
+        
+        $fence->user_id = Auth::user()->id;
+        $fence->save();
 
         return redirect('geofence')->with('message', 'Geofence updated successfully.');
 	}

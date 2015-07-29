@@ -3,7 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\geolocationRequest;
+use App\Http\Requests\GeolocationRequest;
 use App\Models\GeoLocation;
 use App\Models\County;
 use App\Models\SubCounty;
@@ -45,17 +45,13 @@ class GeoLocationController extends Controller {
 	 */
 	public function store(geolocationRequest $request)
 	{
-		$town = new geolocation;
-		$town->code = $request->code;
-        $town->name = $request->name;
-        $town->email = $request->email;
-        $town->address = $request->address;
-        $town->in_charge = $request->in_charge;
-        $town->operational_status = $request->operational_status;
-        $town->latitude = $request->latitude;
-        $town->longitude = $request->longitude;
-        $town->user_id = Auth::user()->id;
-        $town->save();
+		$location = new geolocation;
+		$location->sub_county_id = $request->sub_county;
+        $location->name = $request->name;
+        $location->nearest_town = $request->nearest_town;
+        
+        $location->user_id = Auth::user()->id;
+        $location->save();
 
         return redirect('geolocation')->with('message', 'geolocation created successfully.');
         
@@ -73,7 +69,7 @@ class GeoLocationController extends Controller {
 	{
 		//show a geolocation
 		$geolocation = GeoLocation::find($id);
-		//show the view and pass the $town to it
+		//show the view and pass the $location to it
 		return view('geo.geolocation.show', compact('geolocation'));
 	}
 
@@ -106,16 +102,12 @@ class GeoLocationController extends Controller {
 	 */
 	public function update(geolocationRequest $request, $id)
 	{
-		$town = GeoLocation::findOrFail($id);
-       $town->code = $request->code;
-        $town->name = $request->name;
-        $town->address = $request->address;
-        $town->in_charge = $request->in_charge;
-        $town->operational_status = $request->operational_status;
-        $town->latitude = $request->latitude;
-        $town->longitude = $request->longitude;
-        $town->user_id = Auth::user()->id;
-        $town->save();
+		$location = GeoLocation::findOrFail($id);
+       	$location->sub_county_id = $request->sub_county;
+        $location->name = $request->name;
+        $location->nearest_town = $request->nearest_town;
+        $location->user_id = Auth::user()->id;
+        $location->save();
 
         return redirect('geolocation')->with('message', 'geolocation updated successfully.');
 	}

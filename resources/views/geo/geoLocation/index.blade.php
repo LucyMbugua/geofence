@@ -42,8 +42,8 @@
                         @forelse($geolocations as $geolocation)
                         <tr>
                             <td>{!! $geolocation->name !!}</td>
-                            <td>{!! $geolocation->county !!}</td>
-                            <td>{!! $geolocation->sub_county_id!!}</td>
+                            <td>{!! $geolocation->County !!}</td>
+                            <td>{!! $geolocation->subCounty->name!!}</td>
                             <td>{!! $geolocation->nearest_town !!}</td>
                                                      
                             <td>

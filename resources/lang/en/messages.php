@@ -98,8 +98,9 @@ return [
 	'create-geolocation'	=>	'Create GeoLocation',
 	'edit-geofence'	=>	'Edit Geofence',
 	'select-geofence'	=>	'Select Geofence',
-
+	'select-location'	=>	'Select Location',
 	'nearest-town'	=>	'Nearest Town',
+	'location-id'	=>	'Location ID',
 	'compiled-by'	=>	'lucy.mbugua@strathmore.edu',
 	
 ];

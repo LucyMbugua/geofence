@@ -29,8 +29,7 @@
                 <table class="table table-striped table-bordered table-hover search-table">
                     <thead>
                         <tr>
-                            <th>{{ Lang::choice('messages.location', 1) }}</th>
-                            <th>{{ Lang::choice('messages.name', 1) }}</th>
+                            <th>{{ Lang::choice('messages.location-id', 1) }}</th>
                             <th>{{ Lang::choice('messages.longitude', 1) }}</th>
                             <th>{{ Lang::choice('messages.latitude', 1) }}</th>
                                                     
@@ -40,8 +39,7 @@
                     <tbody>
                         @forelse($geofences as $geofence)
                         <tr>
-                            <td>{!! $geofence->location_id !!}</td>
-                            <td>{!! $geofence->name !!}</td>
+                            <td>{!! $geofence->geo_location_id !!}</td>
                             <td>{!! $geofence->longitude!!}</td>
                             <td>{!! $geofence->latitude !!}</td>
                                                      

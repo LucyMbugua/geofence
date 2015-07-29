@@ -2,9 +2,9 @@
 
 use App\Http\Requests\Request;
 use App\Models\Town;
-use App\Models\Geofence;
+use App\Models\GeoLocation;
 
-class GeofenceRequest extends Request {
+class GeolocationRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class GeofenceRequest extends Request {
 	{
 		$id = $this->ingnoreId();
 		return [
-		'latitude'=> 'required',
+		'name'=> 'required',
 				
         ];
 	}
@@ -33,9 +33,9 @@ class GeofenceRequest extends Request {
 	* @return \Illuminate\Routing\Route|null|string
 	*/
 	public function ingnoreId(){
-		$id = $this->route('geofence');
-		$latitude = $this->input('latitude');
-		return Geofence::where(compact('id', 'latitude'))->exists() ? $id : '';
+		$id = $this->route('geolocation');
+		$name = $this->input('name');
+		return GeoLocation::where(compact('id', 'name'))->exists() ? $id : '';
 	}
 
 }

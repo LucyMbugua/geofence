@@ -25,14 +25,14 @@
                 <!-- CSRF Token -->
                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
-                <div class="form-group">
+                 <div class="form-group">
                     {!! Form::label('location', Lang::choice('messages.location', 1), array('class' => 'col-sm-4 control-label')) !!}
                     <div class="col-sm-8">
-                        {!! Form::text('location_id', Input::old('location_id'), array('class' => 'form-control')) !!}
+                        {!! Form::select('location', array(''=>trans('messages.select-location'))+$locations,'', 
+                            array('class' => 'form-control', 'id' => 'county')) !!}
                     </div>
                 </div>
-
-                  <div class="form-group">
+                 <div class="form-group">
                     {!! Form::label('latitude', Lang::choice('messages.latitude', 1), array('class' => 'col-sm-4 control-label')) !!}
                     <div class="col-sm-8">
                          {!! Form::text('latitude', Input::old('latitude'), array('class' => 'form-control')) !!}
