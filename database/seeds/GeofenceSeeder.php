@@ -150,15 +150,6 @@ class GeofenceSeeder extends Seeder
         }
         $this->command->info('subcounties table seeded');
        
-         /* Geofences table */
-        $geofences = array(
-            array("code" => "19704", "name" => "ACK Nyandarua Medical Clinic", "sub_county_id" => "1",  "geofence_type_id" => "13", "geofence_owner_id" => "3", "reporting_site"=> "Test Test","nearest_town" => "Captain","landline" => " ", "mobile" => " ", "email" => "", "address" => "P.O Box 48",  "in_charge" => "Eliud Mwangi Kithaka",  "operational_status" => "1", "user_id" => "1")
-
-            );
-        foreach ($geofences as $geofence) {
-            Geofence::create($geofence);
-        }
-        $this->command->info('Geofences table seeded');
- 
+      
     }
 }
