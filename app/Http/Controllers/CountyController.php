@@ -22,7 +22,7 @@ class CountyController extends Controller {
 	{
 		//	Get all counties
 		$counties = County::all();
-		return view('mfl.county.index', compact('counties'));
+		return view('geo.county.index', compact('counties'));
 	}
 
 	/**
@@ -32,7 +32,7 @@ class CountyController extends Controller {
 	 */
 	public function create()
 	{
-		return view('mfl.county.create');
+		return view('geo.county.create');
 	}
 
 	/**
@@ -62,7 +62,7 @@ class CountyController extends Controller {
 		//show a County
 		$county = County::find($id);
 		//show the view and pass the $county to it
-		return view('mfl.county.show', compact('county'));
+		return view('geo.county.show', compact('county'));
 	}
 
 	/**
@@ -75,7 +75,7 @@ class CountyController extends Controller {
 	{
 		$county = County::find($id);
 
-        return view('mfl.county.edit', compact('county'));
+        return view('geo.county.edit', compact('county'));
 	}
 
 	/**

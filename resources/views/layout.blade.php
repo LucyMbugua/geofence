@@ -103,7 +103,7 @@
         <div id="page-wrapper">
             @yield('content')
         <hr>
-        <p>Copyright &copy; {{ date('Y') }} | <a href="http://www.ilabafrica.ac.ke">@iLabAfrica</a></p>
+        <p>Copyright &copy; {{ date('Y') }}</p>
         </div>
     </div>
     <!-- /#wrapper -->

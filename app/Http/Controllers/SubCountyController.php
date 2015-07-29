@@ -23,7 +23,7 @@ class SubCountyController extends Controller {
 		//	Get all sub-counties
 		$subCounties = SubCounty::all();
 		
-		return view('mfl.subCounty.index', compact('subCounties'));
+		return view('geo.subCounty.index', compact('subCounties'));
 	}
 
 	/**
@@ -35,7 +35,7 @@ class SubCountyController extends Controller {
 	{
 		//	Get all counties for select list
 		$counties = County::lists('name', 'id');
-		return view('mfl.subCounty.create', compact('counties'));
+		return view('geo.subCounty.create', compact('counties'));
 	}
 
 	/**
@@ -65,7 +65,7 @@ class SubCountyController extends Controller {
 		//show a subCounty
 		$subCounty = SubCounty::find($id);
 		//show the view and pass the $subCounty to it
-		return view('mfl.subCounty.show', compact('subCounty'));
+		return view('geo.subCounty.show', compact('subCounty'));
 	}
 
 	/**
@@ -83,7 +83,7 @@ class SubCountyController extends Controller {
 		//	Get initially selected county
 		$county = $subCounty->county_id;
 
-        return view('mfl.subCounty.edit', compact('subCounty', 'counties', 'county'));
+        return view('geo.subCounty.edit', compact('subCounty', 'counties', 'county'));
 	}
 
 	/**

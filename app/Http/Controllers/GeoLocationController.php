@@ -3,14 +3,14 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\GeofenceRequest;
+use App\Http\Requests\geolocationRequest;
 use App\Models\GeoLocation;
 use App\Models\County;
 use App\Models\SubCounty;
 use Response;
 use Auth;
 
-class GeofenceController extends Controller {
+class GeoLocationController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -19,9 +19,9 @@ class GeofenceController extends Controller {
 	 */
 	public function index()
 	{
-		//	Get all geofences
-		$geofences = Geofence::all();
-		return view('geo.geofence.index', compact('geofences'));
+		//	Get all geolocations
+		$geolocations = GeoLocation::all();
+		return view('geo.geolocation.index', compact('geolocations'));
 	}
 
 	/**
@@ -32,9 +32,9 @@ class GeofenceController extends Controller {
 	public function create()
 	{
 		//	Get all counties
-		$locations = GeoLocation::lists('name', 'id');
-		
-		return view('geo.geofence.create', compact('locations'));
+		$counties = County::lists('name', 'id');
+		$subCounties = SubCounty::lists('name', 'id');
+		return view('geo.geolocation.create', compact('counties', 'subCounties'));
 
 	}
 
@@ -43,9 +43,9 @@ class GeofenceController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(GeofenceRequest $request)
+	public function store(geolocationRequest $request)
 	{
-		$town = new Geofence;
+		$town = new geolocation;
 		$town->code = $request->code;
         $town->name = $request->name;
         $town->email = $request->email;
@@ -57,7 +57,7 @@ class GeofenceController extends Controller {
         $town->user_id = Auth::user()->id;
         $town->save();
 
-        return redirect('geofence')->with('message', 'Geofence created successfully.');
+        return redirect('geolocation')->with('message', 'geolocation created successfully.');
         
 
         
@@ -71,10 +71,10 @@ class GeofenceController extends Controller {
 	 */
 	public function show($id)
 	{
-		//show a geofence
-		$geofence = Geofence::find($id);
+		//show a geolocation
+		$geolocation = GeoLocation::find($id);
 		//show the view and pass the $town to it
-		return view('geo.geofence.show', compact('geofence'));
+		return view('geo.geolocation.show', compact('geolocation'));
 	}
 
 	/**
@@ -85,17 +85,17 @@ class GeofenceController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//	Get geofence
-		$geofence = Geofence::find($id);
-		//	Get all geofence types
+		//	Get geolocation
+		$geolocation = GeoLocation::find($id);
+		//	Get all geolocation types
 		//get sub counties
 		$subCounties = SubCounty::lists('name', 'id');
 		//get initial subcounty
-		$subCounty =$geofence->sub_county_id;
+		$subCounty =$geolocation->sub_county_id;
 		
 		
 
-        return view('geo.geofence.edit', compact('geofence','subCounties', 'subCounty'));
+        return view('geo.geolocation.edit', compact('geolocation','subCounties', 'subCounty'));
 	}
 
 	/**
@@ -104,9 +104,9 @@ class GeofenceController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update(GeofenceRequest $request, $id)
+	public function update(geolocationRequest $request, $id)
 	{
-		$town = Geofence::findOrFail($id);
+		$town = GeoLocation::findOrFail($id);
        $town->code = $request->code;
         $town->name = $request->name;
         $town->address = $request->address;
@@ -117,7 +117,7 @@ class GeofenceController extends Controller {
         $town->user_id = Auth::user()->id;
         $town->save();
 
-        return redirect('geofence')->with('message', 'Geofence updated successfully.');
+        return redirect('geolocation')->with('message', 'geolocation updated successfully.');
 	}
 
 	/**
@@ -129,9 +129,9 @@ class GeofenceController extends Controller {
 
 		public function delete($id)
 	{
-		$geofence= Geofence::find($id);
-		$geofence->delete();
-		return redirect('geofence')->with('message', 'Geofence deleted successfully.');
+		$geolocation= GeoLocation::find($id);
+		$geolocation->delete();
+		return redirect('geolocation')->with('message', 'geolocation deleted successfully.');
 	}
 
 	public function destroy($id)

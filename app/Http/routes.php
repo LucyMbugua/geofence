@@ -44,9 +44,15 @@ Route::get("/user/{id}/delete", array(
 Route::resource('geofence', 'GeofenceController');
 Route::get("/geofence/{id}/delete", array(
     "as"   => "geofence.delete",
-    "uses" => "geofenceController@delete"
+    "uses" => "GeofenceController@delete"
 ));
 
+//	GeoLocation controller
+Route::resource('geolocation', 'GeoLocationController');
+Route::get("/geolocation/{id}/delete", array(
+    "as"   => "geolocation.delete",
+    "uses" => "GeolocationController@delete"
+));
 //	County controller
 Route::resource('county', 'CountyController');
 Route::get("/county/{id}/delete", array(

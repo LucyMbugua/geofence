@@ -13,8 +13,10 @@ return [
 	/* geofencer */
 	
 	'data-manager'	=>	'Data Manager',
-	'longitude'	=>	'Longitude(degrees)',
-	'latitude'	=>	'Latitude(degrees)',
+	'geolocation'	=>	'Geofence Location',
+	'location'	=>	'Location',
+	'longitude'	=>	'Longitude',
+	'latitude'	=>	'Latitude',
 	'access-controls'	=>	'Access Controls',
 	'name'	=>	'Name|Names',
 	'description'	=>	'Description',
@@ -82,19 +84,22 @@ return [
 	'create-county'	=>	'Create County',
 	'edit-county'	=>	'Edit County',
 	'hq'	=>	'Headquarters',
+	'select-county'	=>	'Select County',
 	/* subcounty */
 	'sub-county'	=>	'Sub-County',
-	'create-subCounty'	=>	'Create Sub-County',
-	'edit-subCounty'	=>	'Edit Sub-County',
-	'select-subCounty'	=>	'Select Sub-County',
+	'create-sub-county'	=>	'Create Sub-County',
+	'edit-sub-county'	=>	'Edit Sub-County',
+	'select-sub-county'	=>	'Select Sub-County',
 	/* geofence */
 	'geofence'	=>	'Geofence',
 	'geofencer'	=>	'Geofencer',
 	'geofence-configuration'	=>	'Geofence Configuration',
 	'create-geofence'	=>	'Create Geofence',
+	'create-geolocation'	=>	'Create GeoLocation',
 	'edit-geofence'	=>	'Edit Geofence',
 	'select-geofence'	=>	'Select Geofence',
 
+	'nearest-town'	=>	'Nearest Town',
 	'compiled-by'	=>	'lucy.mbugua@strathmore.edu',
 	
 ];

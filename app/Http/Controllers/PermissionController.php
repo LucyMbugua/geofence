@@ -44,7 +44,7 @@ class PermissionController extends Controller {
 		$permission = new Permission;
         $permission->name = $request->name;
         $permission->description = $request->description;
-        $permission->user_id = 1;
+       // $permission->user_id = 1;
         $permission->save();
 
         return redirect('permission')->with('message', 'Permission created successfully.');
