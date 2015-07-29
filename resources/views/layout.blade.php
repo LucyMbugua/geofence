@@ -67,13 +67,13 @@
                     
                 </li>
                    <li class="dropdown">
-                    <a class="dropdown-toggle" href="{!! url('survey') !!}" role="button" aria-expanded="false">
-                        <span class="fa fa-edit fa-fw"></span> {!! Lang::choice('messages.survey', 2) !!}
+                    <a class="dropdown-toggle" href="{!! url('geofence') !!}" role="button" aria-expanded="false">
+                        <span class="fa fa-edit fa-fw"></span> {!! Lang::choice('messages.geofence', 2) !!}
                     </a>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" href="{!! url('report') !!}" role="button" aria-expanded="false">
-                        <span class="fa fa-bar-chart-o fa-fw"></span> {!! Lang::choice('messages.report', 2) !!}
+                    <a class="dropdown-toggle" href="{!! url('county') !!}" role="button" aria-expanded="false">
+                        <span class="fa fa-bar-chart-o fa-fw"></span> {!! Lang::choice('messages.county', 2) !!}
                     </a>
                 </li>
 

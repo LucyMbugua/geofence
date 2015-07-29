@@ -70,7 +70,7 @@ class CreateMflTables extends Migration {
 			$table->timestamps();
 		});
 		
-
+}
 	/**
 	 * Reverse the migrations.
 	 *
@@ -85,3 +85,4 @@ class CreateMflTables extends Migration {
 
 	}
 }
+

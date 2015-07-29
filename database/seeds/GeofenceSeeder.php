@@ -16,7 +16,7 @@ class GeofenceSeeder extends Seeder
         /* Users table */
         $usersData = array(
             array(
-                "username" => "admin", "password" => Hash::make("password"), "email" => "admin@hivgeofence.org",
+                "username" => "admin", "password" => Hash::make("password"), "email" => "lucymbugua6@gmail.com",
                 "name" => "Lucy Mbugua", "gender" => "1", "phone"=>"0722000000", "address" => "P.O. Box 59857-00200, Nairobi"
             )
         );
@@ -49,13 +49,7 @@ class GeofenceSeeder extends Seeder
         //Assign role Superadmin to all permissions
         User::find(1)->attachRole($role1);
 
-        $role2 = Role::find(4);//Assessor
-
-        //Assign technologist's permissions to role technologist
-        $role2->attachPermission(Permission::find(2));
-        $role2->attachPermission(Permission::find(3));
-        $role2->attachPermission(Permission::find(8));
-
+        
         //Assign roles to the other users
        
         //  Counties

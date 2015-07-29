@@ -94,5 +94,7 @@ return [
 	'create-geofence'	=>	'Create Geofence',
 	'edit-geofence'	=>	'Edit Geofence',
 	'select-geofence'	=>	'Select Geofence',
+
+	'compiled-by'	=>	'lucy.mbugua@strathmore.edu',
 	
 ];
