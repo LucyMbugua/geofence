@@ -20,7 +20,7 @@ class WardController extends Controller {
 	 */
 	public function index()
 	{
-		//	Get all sub-counties
+		//	Get all wards
 		$wards = Ward::all();
 		
 		return view('geo.ward.index', compact('wards'));
@@ -33,7 +33,7 @@ class WardController extends Controller {
 	 */
 	public function create()
 	{
-		//	Get all counties for select list
+		//	Get all sub counties for select list
 		$subCounties = SubCounty::lists('name', 'id');
 		return view('geo.ward.create', compact('subCounties'));
 	}
@@ -47,7 +47,7 @@ class WardController extends Controller {
 	{
 		$ward = new Ward;
         $ward->name = $request->name;
-        $ward->county_id = $request->county_id;
+        $ward->sub_county_id = $request->sub_county_id;
         $ward->user_id = Auth::user()->id;;
         $ward->save();
 

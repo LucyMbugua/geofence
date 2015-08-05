@@ -24,8 +24,8 @@ class WardRequest extends Request {
 	{
 		$id = $this->ingnoreId();
 		return [
-            'name'   => 'required|unique:sub_counties,name,'.$id,
-            'county_id'   => 'required:sub_counties,county_id,'.$id,
+            'name'   => 'required|unique:wards,name,'.$id,
+            'sub_county_id'   => 'required:wards,sub_county_id,'.$id,
         ];
 	}
 	/**

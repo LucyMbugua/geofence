@@ -86,7 +86,7 @@ return [
 	'hq'	=>	'Headquarters',
 	'select-county'	=>	'Select County',
 	/* subcounty */
-	'sub-county'	=>	'Sub-County',
+	'sub-county'	=>	'Sub County',
 	'create-sub-county'	=>	'Create Sub-County',
 	'edit-sub-county'	=>	'Edit Sub-County',
 	'select-sub-county'	=>	'Select Sub-County',

@@ -14,10 +14,10 @@
 <div class="alert alert-info">{{Session::get('message')}}</div>
 @endif
 <div class="panel panel-primary">
-    <div class="panel-heading"><i class="fa fa-tags"></i> {{ Lang::choice('messages.sub-county', 2) }} <span class="panel-btn">
-      <a class="btn btn-sm btn-info" href="{{ URL::to("subCounty/create") }}" >
+    <div class="panel-heading"><i class="fa fa-tags"></i> {{ Lang::choice('messages.ward', 2) }} <span class="panel-btn">
+      <a class="btn btn-sm btn-info" href="{{ URL::to("ward/create") }}" >
         <span class="glyphicon glyphicon-plus-sign"></span>
-            {{ trans('messages.create-sub-county') }}
+            {{ trans('messages.create-ward') }}
           </a>
         </span>
     </div>
@@ -28,19 +28,19 @@
                     <thead>
                         <tr>
                             <th>{{ Lang::choice('messages.name', 1) }}</th>
-                            <th>{{ Lang::choice('messages.county', 1) }}</th>
+                            <th>{{ Lang::choice('messages.sub-county', 1) }}</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($subCounties as $subCounty)
+                        @forelse($wards as $ward)
                         <tr>
-                            <td>{{ $subCounty->name }}</td>
-                            <td>{{ $subCounty->county->name }}</td>
+                            <td>{{ $ward->name }}</td>
+                            <td>{{ $ward->subCounty->name }}</td>
                             <td>
-                              <a href="{{ URL::to("subCounty/" . $subCounty->id) }}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i><span> View</span></a>
-                              <a href="{{ URL::to("subCounty/" . $subCounty->id . "/edit") }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i><span> Edit</span></a>
-                              <a href="{{ URL::to("subCounty/" . $subCounty->id . "/delete") }}" class="btn btn-warning btn-sm"><i class="fa fa-trash-o"></i><span> Delete</span></a>
+                              <a href="{{ URL::to("ward/" . $ward->id) }}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i><span> View</span></a>
+                              <a href="{{ URL::to("ward/" . $ward->id . "/edit") }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i><span> Edit</span></a>
+                              <a href="{{ URL::to("ward/" . $ward->id . "/delete") }}" class="btn btn-warning btn-sm"><i class="fa fa-trash-o"></i><span> Delete</span></a>
                               
                             </td>
                         </tr>
