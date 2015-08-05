@@ -2,9 +2,9 @@
 
 use App\Http\Requests\Request;
 use App\Models\Town;
-use App\Models\Ward;
+use App\Models\GeoLocation;
 
-class WardRequest extends Request {
+class GeolocationRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.

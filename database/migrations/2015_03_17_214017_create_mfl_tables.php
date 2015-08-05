@@ -39,15 +39,35 @@ class CreateMflTables extends Migration {
             $table->softDeletes();
 			$table->timestamps();
 		});	
+		//	wards
+		Schema::create('wards', function(Blueprint $table)
+		{
+			$table->increments('id')->unsigned();
+			$table->string('name');
+			$table->string('description');
+			$table->integer('sub_county_id')->unsigned();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('sub_county_id')->references('id')->on('sub_counties');
+
+            $table->softDeletes();
+			$table->timestamps();
+		});	
+
+
+
+
 		//	geo_locations
 		Schema::create('geo_locations', function(Blueprint $table)
 		{
 			$table->increments('id')->unsigned();
 			$table->integer('sub_county_id')->unsigned();
-			$table->string('nearest_town');
+			$table->integer('ward_id')->unsigned();
 			$table->string('name');
 			$table->integer('user_id')->unsigned();
 
+
+			$table->foreign('ward_id')->references('id')->on('wards');
             $table->foreign('sub_county_id')->references('id')->on('sub_counties');
             $table->foreign('user_id')->references('id')->on('users');
 
