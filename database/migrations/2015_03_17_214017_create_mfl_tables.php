@@ -46,6 +46,7 @@ class CreateMflTables extends Migration {
 			$table->string('name');
 			$table->string('description');
 			$table->integer('sub_county_id')->unsigned();
+			$table->integer('user_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('sub_county_id')->references('id')->on('sub_counties');
