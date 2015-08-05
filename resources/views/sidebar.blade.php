@@ -21,6 +21,8 @@
                 <li><a href="{!! url('geofence') !!}"><i class="fa fa-tag"></i> {!! Lang::choice('messages.geofence', 2) !!}</a></li>
                 <li><a href="{!! url('county') !!}"><i class="fa fa-tag"></i> {!! Lang::choice('messages.county', 2) !!}</a></li>
                 <li><a href="{!! url('subCounty') !!}"><i class="fa fa-tag"></i> {!! Lang::choice('messages.sub-county', 2) !!}</a></li>
+                <li><a href="{!! url('ward') !!}"><i class="fa fa-tag"></i> {!! Lang::choice('messages.ward', 2) !!}</a></li>
+           
             </ul>
         </li>
          <!-- User management -->

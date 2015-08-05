@@ -19,54 +19,18 @@
   <div class="panel-body">
     <div class="panel panel-default">
       <div class="panel-body">
-        <h4 class="no-margn view">
-          <strong>{{ Lang::choice('messages.code', 1) }}:</strong> <span> {{ $geofence->code }}</span>
-        </h4>
-        <hr>
-        <h5 class="no-margn">
-          <strong>{{ Lang::choice('messages.name', 1) }}:</strong> <span> {{ $geofence->name }}</span>
+           <h5 class="no-margn">
+          <strong>{{ Lang::choice('messages.location', 1) }}:</strong> <span> {{ $geofence->geo_location_id }}</span>
         </h5>
         <hr>
         <h5 class="no-margn">
-          <strong>{{ Lang::choice('messages.geofence-type', 1) }}:</strong> <span> {{ $geofence->geofenceType->name}}</span>
+          <strong>{{ Lang::choice('messages.longitude', 1) }}:</strong> <span> {{ $geofence->longitude}}</span>
         </h5>
         <hr>
         <h5 class="no-margn">
-          <strong>{{ Lang::choice('messages.geofence-owner', 1) }}:</strong> <span> {{ $geofence->geofenceOwner->name }}</span>
+          <strong>{{ Lang::choice('messages.latitude', 1) }}:</strong> <span> {{ $geofence->latitude }}</span>
         </h5>
-        <hr>
-        <h5 class="no-margn">
-          <strong>{{ Lang::choice('messages.nearest-town', 1) }}:</strong> <span> {{ $geofence->nearest_town }}</span>
-        </h5>
-        <hr>
-        <h5 class="no-margn">
-          <strong>{{ Lang::choice('messages.landline', 1) }}:</strong> <span> {{ $geofence->landline }}</span>
-        </h5>
-        <hr>
-         <h5 class="no-margn">
-          <strong>{{ Lang::choice('messages.mobile', 1) }}:</strong> <span> {{ $geofence->mobile }}</span>
-        </h5>
-        <hr>
-        <h5 class="no-margn">
-          <strong>{{ Lang::choice('messages.email', 1) }}:</strong> <span> {{ $geofence->email }}</span>
-        </h5>
-        <hr>
-        <h5 class="no-margn">
-          <strong>{{ Lang::choice('messages.address', 1) }}:</strong> <span> {{ $geofence->address }}</span>
-        </h5>
-        <hr>
-        <h5 class="no-margn">
-          <strong>{{ Lang::choice('messages.in-charge', 1) }}:</strong> <span> {{ $geofence->in_charge }}</span>
-        </h5>
-        <hr>
-        <h5 class="no-margn">
-          <strong>{{ Lang::choice('messages.reporting-site', 1) }}:</strong> <span> {{ $geofence->reporting_site }}</span>
-        </h5>
-        <hr>
-        <h5 class="no-margn">
-          <strong>{{ Lang::choice('messages.operational-status', 1) }}:</strong> <span> {{ $geofence->operational_status== App\Models\geofence::OPERATIONAL? Lang::choice('messages.yes', 1):Lang::choice('messages.no', 1) }}</span>
-        </h5>
-      </div>
+        </div>
   </div>
 </div>
 </div>

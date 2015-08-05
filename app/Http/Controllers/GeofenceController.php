@@ -85,13 +85,13 @@ class GeofenceController extends Controller {
 		$geofence = Geofence::find($id);
 		//	Get all geofence types
 		//get sub counties
-		$subCounties = SubCounty::lists('name', 'id');
+		$locations = GeoLocation::lists('name', 'id');
 		//get initial subcounty
-		$subCounty =$geofence->sub_county_id;
+		$location =$geofence->geo_location_id;
 		
 		
 
-        return view('geo.geofence.edit', compact('geofence','subCounties', 'subCounty'));
+        return view('geo.geofence.edit', compact('geofence','locations', 'location'));
 	}
 
 	/**

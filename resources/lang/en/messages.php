@@ -102,5 +102,11 @@ return [
 	'nearest-town'	=>	'Nearest Town',
 	'location-id'	=>	'Location ID',
 	'compiled-by'	=>	'lucy.mbugua@strathmore.edu',
+	//wards
+	'ward'	=>	'Ward',
+	'create-ward'	=>	'Create Ward',
+	'edit-ward'	=>	'Edit Ward',
+	
+
 	
 ];

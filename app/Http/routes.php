@@ -67,6 +67,14 @@ Route::get("/subCounty/{id}/delete", array(
     "as"   => "subCounty.delete",
     "uses" => "SubCountyController@delete"
 ));
+//  Ward controller
+Route::resource('ward', 'WardController');
+
+Route::get("/ward/{id}/delete", array(
+    "as"   => "ward.delete",
+    "uses" => "WardController@delete"
+));
+
 //  Role controller
 Route::resource('role', 'RoleController');
 //  Permission controller

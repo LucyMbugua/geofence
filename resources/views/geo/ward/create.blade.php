@@ -10,13 +10,8 @@
         </ol>
     </div>
 </div>
-
-@if(Session::has('message'))
-<div class="alert alert-info">{{Session::get('message')}}</div>
-@endif
-
 <div class="panel panel-primary">
-    <div class="panel-heading"><i class="fa fa-tags"></i> {{ Lang::choice('messages.edit-geofence', '1') }}</div>
+    <div class="panel-heading"><i class="fa fa-tags"></i> {{ Lang::choice('messages.create-ward', '1') }}</div>
     <div class="panel-body">
         <div class="col-lg-6 main">
             <!-- Begin form --> 
@@ -26,30 +21,27 @@
                 {!! HTML::ul($errors->all(), array('class'=>'list-unstyled')) !!}
             </div>
             @endif
-            {!! Form::model($geofence, array('route' => array('geofence.update', $geofence->id), 
-        'method' => 'PUT', 'id' => 'form-edit-geofence', 'class' => 'form-horizontal')) !!}
+            {!! Form::open(array('route' => 'ward.store', 'id' => 'form-add-ward', 'class' => 'form-horizontal')) !!}
                 <!-- CSRF Token -->
                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                 <!-- ./ csrf token -->
                 <div class="form-group">
-                    {!! Form::label('geo_location_id', Lang::choice('messages.location', 1), array('class' => 'col-sm-4 control-label')) !!}
+                    {!! Form::label('name', Lang::choice('messages.name', 1), array('class' => 'col-sm-4 control-label')) !!}
                     <div class="col-sm-8">
-                        {!! Form::select('location', array(''=>trans('messages.select-location'))+$locations,
-                        old('location') ? old('location') : $location,
-                            array('class' => 'form-control', 'id' => 'sub_county')) !!}
+                        {!! Form::text('name', Input::old('name'), array('class' => 'form-control')) !!}
                     </div>
                 </div>
-                
                 <div class="form-group">
-                    {!! Form::label('latitude', Lang::choice('messages.latitude', 1), array('class' => 'col-sm-4 control-label')) !!}
+                    {!! Form::label('description', Lang::choice('messages.description', 1), array('class' => 'col-sm-4 control-label')) !!}
                     <div class="col-sm-8">
-                         {!! Form::text('latitude', Input::old('latitude'), array('class' => 'form-control')) !!}
-                   </div>
+                        {!! Form::text('description', Input::old('description'), array('class' => 'form-control')) !!}
+                    </div>
                 </div>
                 <div class="form-group">
-                    {!! Form::label('longitude', Lang::choice('messages.longitude', 1), array('class' => 'col-sm-4 control-label')) !!}
+                    {!! Form::label('sub_county_id', Lang::choice('messages.sub-county', 1), array('class' => 'col-sm-4 control-label')) !!}
                     <div class="col-sm-8">
-                       {!! Form::text('longitude', Input::old('longitude'), array('class' => 'form-control')) !!}
+                        {!! Form::select('sub_county_id', array(''=>trans('messages.select-sub-county'))+$subCounties,'', 
+                            array('class' => 'form-control', 'id' => 'sub_county_id')) !!}
                     </div>
                 </div>
                 <div class="form-group">
