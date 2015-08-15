@@ -32,7 +32,7 @@ class WardRequest extends Request {
 	* @return \Illuminate\Routing\Route|null|string
 	*/
 	public function ingnoreId(){
-		$id = $this->route('Ward');
+		$id = $this->route('ward');
 		$name = $this->input('name');
 		return Ward::where(compact('id', 'name'))->exists() ? $id : '';
 	}

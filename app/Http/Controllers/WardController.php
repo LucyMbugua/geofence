@@ -98,7 +98,7 @@ class WardController extends Controller {
 		$ward = Ward::findOrFail($id);;
         $ward->name = $request->name;
         $ward->description = $request->description;
-        $ward->county_id = $request->county_id;
+        $ward->sub_county_id = $request->sub_county_id;
         $ward->user_id = Auth::user()->id;;
         $ward->save();
 

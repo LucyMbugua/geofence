@@ -7,6 +7,7 @@ use App\Http\Requests\GeofenceRequest;
 use App\Models\Geofence;
 use App\Models\GeoLocation;
 use App\Models\County;
+use App\Models\Ward;
 use App\Models\SubCounty;
 use Response;
 use Auth;
@@ -33,7 +34,7 @@ class GeofenceController extends Controller {
 	public function create()
 	{
 		//	Get all counties
-		$locations = GeoLocation::lists('name', 'id');
+		$locations = Ward::lists('name', 'id');
 		
 		return view('geo.geofence.create', compact('locations'));
 
@@ -47,7 +48,7 @@ class GeofenceController extends Controller {
 	public function store(GeofenceRequest $request)
 	{
 		$fence = new Geofence;
-		$fence->geo_location_id = $request->location;
+		$fence->geo_location_id = $request->geo_location_id;
         $fence->latitude = $request->latitude;
         $fence->longitude = $request->longitude;
         $fence->user_id = Auth::user()->id;
@@ -85,7 +86,7 @@ class GeofenceController extends Controller {
 		$geofence = Geofence::find($id);
 		//	Get all geofence types
 		//get sub counties
-		$locations = GeoLocation::lists('name', 'id');
+		$locations = Ward::lists('name', 'id');
 		//get initial subcounty
 		$location =$geofence->geo_location_id;
 		
@@ -103,7 +104,7 @@ class GeofenceController extends Controller {
 	public function update(GeofenceRequest $request, $id)
 	{
 		$fence = Geofence::findOrFail($id);
-       	$fence->geo_location_id = $request->location;
+       	$fence->geo_location_id = $request->geo_location_id;
         $fence->latitude = $request->latitude;
         $fence->longitude = $request->longitude;
         

@@ -17,7 +17,7 @@
         <li>
             <a href="#"><i class="fa fa-database"></i> {!! Lang::choice('messages.geofence-configuration', 1) !!}<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level collapse">
-                 <li><a href="{!! url('geolocation') !!}"><i class="fa fa-tag"></i> {!! Lang::choice('messages.geolocation', 2) !!}</a></li>
+                <li><a href="{!! url('geolocation') !!}"><i class="fa fa-tag"></i> {!! Lang::choice('messages.geolocation', 2) !!}</a></li>
                 <li><a href="{!! url('geofence') !!}"><i class="fa fa-tag"></i> {!! Lang::choice('messages.geofence', 2) !!}</a></li>
                 <li><a href="{!! url('county') !!}"><i class="fa fa-tag"></i> {!! Lang::choice('messages.county', 2) !!}</a></li>
                 <li><a href="{!! url('subCounty') !!}"><i class="fa fa-tag"></i> {!! Lang::choice('messages.sub-county', 2) !!}</a></li>

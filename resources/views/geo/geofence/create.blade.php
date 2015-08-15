@@ -26,10 +26,10 @@
                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 
                  <div class="form-group">
-                    {!! Form::label('location', Lang::choice('messages.location', 1), array('class' => 'col-sm-4 control-label')) !!}
+                    {!! Form::label('geo_location_id', Lang::choice('messages.location', 1), array('class' => 'col-sm-4 control-label')) !!}
                     <div class="col-sm-8">
-                        {!! Form::select('location', array(''=>trans('messages.select-location'))+$locations,'', 
-                            array('class' => 'form-control', 'id' => 'county')) !!}
+                        {!! Form::select('geo_location_id', array(''=>trans('messages.select-location'))+$locations,'', 
+                            array('class' => 'form-control', 'id' => 'geo_location_id')) !!}
                     </div>
                 </div>
                  <div class="form-group">

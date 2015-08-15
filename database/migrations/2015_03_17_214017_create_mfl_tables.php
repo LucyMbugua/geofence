@@ -79,12 +79,12 @@ class CreateMflTables extends Migration {
 		Schema::create('geofences', function(Blueprint $table)
 		{
 			$table->increments('id')->unsigned();
-			$table->double('longitude')->unsigned();
-			$table->double('latitude')->unsigned();
+			$table->double('longitude')->signed();
+			$table->double('latitude')->signed();
 			$table->integer('geo_location_id')->unsigned();
 			$table->integer('user_id')->unsigned();
 
-            $table->foreign('geo_location_id')->references('id')->on('geo_locations');
+            $table->foreign('geo_location_id')->references('id')->on('wards');
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->softDeletes();
